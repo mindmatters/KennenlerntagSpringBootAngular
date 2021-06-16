@@ -1,0 +1,2 @@
+de/mindmatters/kennenlerntag/KennenlerntagApplication.java
+ de.mindmatters.kennenlerntag.KennenlerntagApplication
