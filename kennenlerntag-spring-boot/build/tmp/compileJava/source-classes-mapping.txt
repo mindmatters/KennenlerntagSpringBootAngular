@@ -1,6 +1,0 @@
-de/mindmatters/kennenlerntag/KennenlerntagApplication.java
- de.mindmatters.kennenlerntag.KennenlerntagApplication
-de/mindmatters/kennenlerntag/controllers/DataController.java
- de.mindmatters.kennenlerntag.controllers.DataController
-de/mindmatters/kennenlerntag/config/WebSecurityConfig.java
- de.mindmatters.kennenlerntag.config.WebSecurityConfig
