@@ -3,11 +3,10 @@ COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-RUN  ls -la /home/gradle/src/build/libs/
+
 FROM openjdk:11-jre-slim
 
 RUN mkdir /app
-
 
 COPY --from=build /home/gradle/src/build/libs/kennenlerntag-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
 
