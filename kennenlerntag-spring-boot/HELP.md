@@ -1,5 +1,37 @@
 # Getting Started
 
+## Entwicklungsumgebung
+
+Folgende Endpunkte sollten erreichbar sein:
+* http://localhost:8080/api/v1/data/public/*
+* http://localhost:8080/api/v1/data/private/*
+
+### Enwicklung mit Docker
+
+Vorraussetzungen:
+* Docker
+
+Image erstellen
+```
+docker image build -t kennenlern-backend .
+```
+
+Container starten
+```
+docker container run -it -p 8080:8080 kennenlern-backend
+```
+
+### Entwicklung ohne Docker
+
+Vorraussetzungen:
+* Java 11
+
+Starte spring boot mit gradle
+```
+./gradlew bootRun
+```
+
+## Help
 ### Reference Documentation
 For further reference, please consider the following sections:
 
