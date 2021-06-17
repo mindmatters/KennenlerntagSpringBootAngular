@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  backend:
+    build:
+      context: kennenlerntag-spring-boot/. # Use an image built from the specified dockerfile in this directory.
+      dockerfile: Dockerfile
+      target: build # User build stage of the dockerfile
+    command: ./gradlew bootRun # start with this command
+    volumes:
+      - ./kennenlerntag-spring-boot/:/home/gradle/src # continuously sync local folder to container
+      - /home/gradle/src/.gradle # do not sync .gradle folder
+      - /home/gradle/src/build # do not sync build folder
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
