@@ -13,16 +13,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("svc/api/v1/data/private/*").hasRole("USER")
-                .and()
-                .formLogin();
+                .antMatchers("svc/api/v1/points", "svc/api/v1/points/**").permitAll();
     }
-    @Autowired
+/*    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER")
                 .and()
                 .withUser("admin").password("adminpassword").roles("USER", "ADMIN");
-    }
+    }*/
 }

@@ -10,5 +10,4 @@ public interface VisitPointsRepository extends CrudRepository<VisitPoint, Long> 
     @Override
     List<VisitPoint> findAll();
 
-
 }

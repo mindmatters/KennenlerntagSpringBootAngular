@@ -15,7 +15,6 @@ import java.util.Date;
 @Entity
 public  class VisitPoint extends Point
 {
-    @Setter
     private Long id;
 
     @Getter
@@ -34,4 +33,10 @@ public  class VisitPoint extends Point
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+
 }

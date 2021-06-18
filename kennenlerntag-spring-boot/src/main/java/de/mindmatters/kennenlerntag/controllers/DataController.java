@@ -3,8 +3,7 @@ import de.mindmatters.kennenlerntag.dao.VisitPoint;
 import de.mindmatters.kennenlerntag.models.VisitPointsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,10 +16,17 @@ public class DataController {
         this.visitPointsService = visitPointsService;
     }
 
-    @RequestMapping(value = "svc/api/v1/points/")
-    public ResponseEntity<List<VisitPoint>> getPrivateData() {
+    @RequestMapping(value = "svc/api/v1/points/", method = RequestMethod.GET)
+    public ResponseEntity<List<VisitPoint>> getPoints() {
 
         return new ResponseEntity<>(visitPointsService.loadAllPoints(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "svc/api/v1/points/", method = RequestMethod.POST)
+    public ResponseEntity<HttpStatus> postPoints(@RequestBody List<VisitPoint> points)
+    {
+        visitPointsService.savePoints(points);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
