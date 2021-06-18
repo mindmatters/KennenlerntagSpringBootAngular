@@ -13,7 +13,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/api/v1/data/private").hasRole("USER")
+                .antMatchers("svc/api/v1/data/private/*").hasRole("USER")
                 .and()
                 .formLogin();
     }
@@ -21,6 +21,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");	
+                .withUser("user").password("password").roles("USER")
+                .and()
+                .withUser("admin").password("adminpassword").roles("USER", "ADMIN");
     }
 }
